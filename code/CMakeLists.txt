@@ -929,6 +929,7 @@ ELSE()
   SET( Pugixml_SRCS
     ../contrib/pugixml/src/pugiconfig.hpp
     ../contrib/pugixml/src/pugixml.hpp
+    ../contrib/pugixml/src/pugixml.cpp
   )
   INCLUDE_DIRECTORIES("../contrib/pugixml/src")
   SOURCE_GROUP( Contrib\\Pugixml FILES ${Pugixml_SRCS})
@@ -1305,7 +1306,7 @@ IF(ASSIMP_HUNTER_ENABLED)
     target_link_libraries(assimp PRIVATE ${draco_LIBRARIES})
   endif()
 ELSE()
-  TARGET_LINK_LIBRARIES(assimp ${ZLIB_LIBRARIES} ${OPENDDL_PARSER_LIBRARIES} pugixml)
+  TARGET_LINK_LIBRARIES(assimp ${ZLIB_LIBRARIES} ${OPENDDL_PARSER_LIBRARIES})
   if (ASSIMP_BUILD_DRACO)
     target_link_libraries(assimp ${draco_LIBRARIES})
   endif()
