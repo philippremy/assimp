@@ -935,6 +935,8 @@ ELSE()
   SOURCE_GROUP( Contrib\\Pugixml FILES ${Pugixml_SRCS})
 ENDIF()
 
+find_package(PugiXML REQUIRED)
+
 # utf8
 IF(ASSIMP_HUNTER_ENABLED)
   hunter_add_package(utf8)
@@ -1306,7 +1308,7 @@ IF(ASSIMP_HUNTER_ENABLED)
     target_link_libraries(assimp PRIVATE ${draco_LIBRARIES})
   endif()
 ELSE()
-  TARGET_LINK_LIBRARIES(assimp ${ZLIB_LIBRARIES} ${OPENDDL_PARSER_LIBRARIES})
+  TARGET_LINK_LIBRARIES(assimp ${ZLIB_LIBRARIES} ${OPENDDL_PARSER_LIBRARIES} pugixml::pugixml)
   if (ASSIMP_BUILD_DRACO)
     target_link_libraries(assimp ${draco_LIBRARIES})
   endif()
